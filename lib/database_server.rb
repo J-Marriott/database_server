@@ -16,7 +16,7 @@ class DatabaseServer < Sinatra::Base
 
   get '/get' do
     userhash = session[:hash]
-    "#{userhash["username"]}"
+    "#{userhash["#{params["key"]}"]}"
   end
 
   # start the server if ruby file executed directly
