@@ -9,15 +9,12 @@ class DatabaseServer < Sinatra::Base
   end
 
   get '/set' do
-    params.each do |key, value|
-      DatabaseServer.cache[key] = value
-    end
+    params.each {|key, value| DatabaseServer.cache[key] = value}
     "#{DatabaseServer.cache}"
   end
 
   get '/get' do
-    userkey = params["key"]
-    "#{DatabaseServer.cache["#{userkey}"]}"
+    "#{DatabaseServer.cache["#{params["key"]}"]}"
   end
 
   # start the server if ruby file executed directly
