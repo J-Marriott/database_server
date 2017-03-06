@@ -3,7 +3,7 @@ require 'sinatra/base'
 class DatabaseServer < Sinatra::Base
 
   get '/' do
-    'First get route defined'
+    'Welcome to the app'
   end
 
   # start the server if ruby file executed directly
