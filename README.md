@@ -36,4 +36,34 @@ I would like a solution that is open for linking to a database
 ```
 ****
 
+####Instructions
+
+1) Clone this repo
+
+```
+$git clone https://github.com/J-Marriott/database_server
+```
+
+2) Navigate into directory
+
+```
+$cd database_server
+```
+3) Start server
+
+```
+$rackup -p 4000
+```
+4) Store key & value by navigating to address e.g.
+
+```
+http://localhost:4000/set?name=joe
+```
+
+5) View variable by navigating to address e.g.
+
+```
+http://localhost:4000/get?key=name
+```
+
  
