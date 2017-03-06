@@ -29,11 +29,7 @@ class DatabaseServer < Sinatra::Base
 
   get '/load' do
     load_data
-    if DatabaseServer.cache == YAML.load_file('public/data/data.yml')
-      "Data loaded"
-    else
-      "Oh no, something went wrong"
-    end
+    "Data loaded"
   end
 
   helpers

@@ -54,16 +54,29 @@ $cd database_server
 ```
 $rackup -p 4000
 ```
+
+4) To load data from .yml file navigate to
+
+```
+http://localhost:4000/load
+```
+
 4) Store key & value by navigating to address e.g.
 
 ```
 http://localhost:4000/set?name=joe
 ```
 
-5) View variable by navigating to address e.g.
+5) View value by navigating to address e.g.
 
 ```
 http://localhost:4000/get?key=name
+```
+
+6) Save to .yml file by navigating to
+
+```
+http://localhost:4000/store
 ```
 
  
