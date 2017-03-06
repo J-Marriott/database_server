@@ -14,6 +14,11 @@ class DatabaseServer < Sinatra::Base
     "#{session[:hash]}"
   end
 
+  get '/get' do
+    userhash = session[:hash]
+    "#{userhash["username"]}"
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
