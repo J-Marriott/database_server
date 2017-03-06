@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 class DatabaseServer < Sinatra::Base
   enable :sessions
+  set :cache, {}
 
   get '/' do
     'Welcome to the app'
@@ -9,14 +10,14 @@ class DatabaseServer < Sinatra::Base
 
   get '/set' do
     params.each do |key, value|
-      session[:hash] = {key => value};
+      DatabaseServer.cache[key] = value
     end
-    "#{session[:hash]}"
+    "#{DatabaseServer.cache}"
   end
 
   get '/get' do
-    userhash = session[:hash]
-    "#{userhash["#{params["key"]}"]}"
+    userkey = params["key"]
+    "#{DatabaseServer.cache["#{userkey}"]}"
   end
 
   # start the server if ruby file executed directly
