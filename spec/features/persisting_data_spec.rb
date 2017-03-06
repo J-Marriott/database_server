@@ -1,14 +1,19 @@
 require 'spec_helper'
 
-feature 'Session variable can be loaded' do
-  scenario 'On load, user is displayed value that they set in query string' do
+feature 'Data can be saved' do
+  scenario 'Data can be saved to yaml file in public/data' do
     visit '/'
     visit '/set?username=joe'
-    visit '/set?myjumperis=blue'
     visit '/store'
-    expect(page).to have_content 'Data Saved'
+    expect(page).to have_content 'Data saved'
+  end
+end
+
+feature 'Data can be loaded' do
+  scenario 'On load, user is displayed value that they set in query string' do
     visit '/'
-    visit '/get?key=myjumperis'
-    expect(page).to have_content 'blue'
+    visit '/load'
+    visit '/get?key=username'
+    expect(page).to have_content 'joe'
   end
 end

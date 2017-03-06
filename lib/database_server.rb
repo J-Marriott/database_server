@@ -6,7 +6,6 @@ class DatabaseServer < Sinatra::Base
   set :cache, {}
 
   get '/' do
-    load_data
     'Welcome to the app'
   end
 
@@ -22,7 +21,16 @@ class DatabaseServer < Sinatra::Base
   get '/store' do
     save_data
     if DatabaseServer.cache == YAML.load_file('public/data/data.yml')
-      "Data Saved"
+      "Data saved"
+    else
+      "Oh no, something went wrong"
+    end
+  end
+
+  get '/load' do
+    load_data
+    if DatabaseServer.cache == YAML.load_file('public/data/data.yml')
+      "Data loaded"
     else
       "Oh no, something went wrong"
     end
